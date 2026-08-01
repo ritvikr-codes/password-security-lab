@@ -28,7 +28,6 @@ from hashing.hash_generator import (
     verify_bcrypt,
 )
 
-
 def test_sha256_is_deterministic():
     """
     Verify that hashing the same password with SHA-256 twice produces
@@ -41,7 +40,6 @@ def test_sha256_is_deterministic():
     first_hash = generate_sha256(password)
     second_hash = generate_sha256(password)
     assert first_hash == second_hash
-
 
 def test_sha256_known_value():
     """
@@ -56,7 +54,6 @@ def test_sha256_known_value():
     expected_hash = "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8"
     assert generate_sha256(password) == expected_hash
 
-
 def test_sha256_different_passwords_differ():
     """
     Verify that two different passwords produce two different
@@ -65,7 +62,6 @@ def test_sha256_different_passwords_differ():
     hash_one = generate_sha256("password1")
     hash_two = generate_sha256("password2")
     assert hash_one != hash_two
-
 
 def test_sha512_is_deterministic():
     """
@@ -77,7 +73,6 @@ def test_sha512_is_deterministic():
     second_hash = generate_sha512(password)
     assert first_hash == second_hash
 
-
 def test_sha512_produces_correct_length():
     """
     Verify that generate_sha512() always returns a 128-character
@@ -86,7 +81,6 @@ def test_sha512_produces_correct_length():
     """
     hashed_password = generate_sha512("anything")
     assert len(hashed_password) == 128
-
 
 def test_bcrypt_hashes_are_salted():
     """
@@ -102,7 +96,6 @@ def test_bcrypt_hashes_are_salted():
     hash_two = generate_bcrypt(password)
     assert hash_one != hash_two
 
-
 def test_bcrypt_verify_correct_password():
     """
     Verify that verify_bcrypt() returns True when the correct
@@ -111,7 +104,6 @@ def test_bcrypt_verify_correct_password():
     password = "Password123"
     hashed_password = generate_bcrypt(password)
     assert verify_bcrypt(password, hashed_password) is True
-
 
 def test_bcrypt_verify_wrong_password_fails():
     """
@@ -122,7 +114,6 @@ def test_bcrypt_verify_wrong_password_fails():
     password = "Password123"
     hashed_password = generate_bcrypt(password)
     assert verify_bcrypt("WrongPassword", hashed_password) is False
-
 
 def test_bcrypt_verify_empty_password_fails():
     """
