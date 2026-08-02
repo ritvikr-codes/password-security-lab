@@ -15,12 +15,6 @@ Run with:
     pytest tests/test_hash_generator.py -v
 """
 
-import sys
-import os
-
-# Make src/ importable when running pytest from the project root.
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
-
 from hashing.hash_generator import (
     generate_sha256,
     generate_sha512,
