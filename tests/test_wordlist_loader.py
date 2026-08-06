@@ -1,4 +1,4 @@
-from utils.wordlist_loader import load_wordlist
+from src.utils.wordlist_loader import load_wordlist
 
 
 def test_load_wordlist():

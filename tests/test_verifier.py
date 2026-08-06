@@ -3,8 +3,8 @@ Unit tests for verifier.py
 """
 
 import pytest
-from hashing.hash_generator import generate_bcrypt
-from hashing.verifier import verify_password
+from src.hashing.hash_generator import generate_bcrypt
+from src.hashing.verifier import verify_password
 
 def test_verify_password_success():
     hashed = generate_bcrypt("Password123")

@@ -4,7 +4,7 @@ verifier.py
 Provides a unified interface for verifying password hashes.
 """
 
-from hashing.hash_generator import verify_bcrypt
+from .hash_generator import verify_bcrypt
 def verify_password (
     password: str,
     hashed_password: bytes,

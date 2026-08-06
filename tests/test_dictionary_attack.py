@@ -1,5 +1,5 @@
-from hashing.hash_generator import generate_sha256
-from attacks.dictionary_attack import crack_sha256
+from src.hashing.hash_generator import generate_sha256
+from src.attacks.dictionary_attack import crack_sha256
 
 def test_dictionary_attack_sha256():
     password = "Password123"

@@ -4,7 +4,7 @@ dictionary_attack.py
 Implements dictionary attacks against password hashes.
 """
 
-from hashing.hash_generator import (
+from ..hashing.hash_generator import (
     generate_sha256,
     generate_sha512,
     verify_bcrypt,

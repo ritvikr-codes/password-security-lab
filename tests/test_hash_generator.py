@@ -15,7 +15,7 @@ Run with:
     pytest tests/test_hash_generator.py -v
 """
 
-from hashing.hash_generator import (
+from src.hashing.hash_generator import (
     generate_sha256,
     generate_sha512,
     generate_bcrypt,
