@@ -16,7 +16,10 @@ def test_bruteforce_sha256_success():
         charset="abc",
         max_length=2,
     )
-    assert result == password
+    assert result["password"] == password
+    assert result["attempts"] > 0
+    assert result["time"] >= 0
+    assert result["attempts_per_second"] >= 0
 
 def test_bruteforce_sha256_failure():
     target = generate_sha256("zz")
@@ -25,7 +28,8 @@ def test_bruteforce_sha256_failure():
         charset="abc",
         max_length=2,
     )
-    assert result is None
+    assert result["password"] is None
+    assert result["attempts"] == 12
 
 def test_bruteforce_sha512_success():
     password = "ba"
@@ -35,4 +39,5 @@ def test_bruteforce_sha512_success():
         charset="abc",
         max_length=2,
     )
-    assert result == password
+    assert result["password"] == password
+    assert result["attempts"] > 0

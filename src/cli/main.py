@@ -61,8 +61,10 @@ def dictionary_command(args):
         print(f"Recovered password : {result}")
 
 def bruteforce_command(args):
-    # Handle the brute-force attack command.
-    print("\nBrute Force Attack\n")
+    """Handle the brute-force attack command."""
+    print("\n========================================")
+    print("        BRUTE FORCE ATTACK")
+    print("========================================\n")
     print(f"Algorithm   : {args.algorithm}")
     print(f"Charset     : {args.charset}")
     print(f"Max length  : {args.max_length}")
@@ -79,11 +81,25 @@ def bruteforce_command(args):
             args.charset,
             args.max_length,
         )
-    if result is None:
+
+    print("----------------------------------------")
+    print(f"Attempts        : {result['attempts']}")
+    print(f"Time taken      : {result['time']:.6f} seconds")
+    print(
+        f"Attempts/second : "
+        f"{result['attempts_per_second']:.2f}"
+    )
+
+    if result["password"] is None:
+        print("Status          : FAILED")
         print("Password not found.")
     else:
-        print("SUCCESS!")
-        print(f"Recovered password : {result}")
+        print("Status          : SUCCESS")
+        print(
+            f"Recovered password : "
+            f"{result['password']}"
+        )
+    print("----------------------------------------")
 
 def main():
     parser = argparse.ArgumentParser(
